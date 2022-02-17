@@ -40,15 +40,7 @@ document.getElementById('save-btn').addEventListener('click',function(){
     savingAmount.innerText = saveAmount ;
    const balance = document.getElementById('balance');
    const remainingBalance = document.getElementById('remaining-balance');
-   const totalExpense = document.getElementById('expense');
- const total = savingAmount.innerText + totalExpense.innerText ;
-
-   //     error handling    //
-   if(total >incomeText.value ){
-     return alert('Please Decreage Your Total Expense Or Saving Money')
-   }
-   else {
-    remainingBalance.innerText = balance.innerText - savingAmount.innerText ;
-   }
+   remainingBalance.innerText = balance.innerText - savingAmount.innerText ;
+   
    
 })

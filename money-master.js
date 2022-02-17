@@ -1,26 +1,31 @@
 
 function allCost(input){
-  const notifiy = document.getElementById('notify-number')
-  
     const inputText = document.getElementById(input) ;
     const inputValue = parseFloat(inputText.value); 
    return inputValue ;
-
 }
 
 document.getElementById('calculate').addEventListener('click',function(){
+  const food = allCost('food'); 
+const rent = allCost('rent');
+const cloth = allCost('cloth');
 
-  const total = allCost('food') + allCost('rent') + allCost('cloth') ;
-  const totalExpense = document.getElementById('expense');
-  totalExpense.innerText = total  ; 
+const totalExpense = document.getElementById('expense');
+  totalExpense.innerText = food + rent + cloth ;
   
   const incomeMoney = document.getElementById('income');
+  const income = incomeMoney.value ;
+
   const balanceMoney = document.getElementById('balance');
-  // const totalExpense = document.getElementById('expense'); 
- const income = incomeMoney.value
  const balance = parseFloat(balanceMoney.innerText);
  balanceMoney.innerText = income - totalExpense.innerText  ;
-//  balanceMoney.innerText = balanceTotal
+ 
+// if(totalExpense.innerText > income){
+//   const notify = document.getElementById('notify-number');
+//   notify.style.display = 'block'
+// }else{
+//   balanceMoney.innerText = income - totalExpense.innerText  ;
+// }
 
 })
 
@@ -33,4 +38,15 @@ document.getElementById('save-btn').addEventListener('click',function(){
    const balance = document.getElementById('balance');
    const remainingBalance = document.getElementById('remaining-balance');
    remainingBalance.innerText = balance.innerText - savingAmount.innerText ;
+
+   //     error   //
+  //  const totalExpense = document.getElementById('expense');
+  //  const incomeMoneys = document.getElementById('income');
+  //  const total = totalExpense.innerText + savingAmount.innerText
+  //  if(total >incomeMoneys.value){
+  //   const notify = document.getElementById('notify-number');
+  //     notify.style.display = 'block'
+  //  }else{
+  //   remainingBalance.innerText = balance.innerText - savingAmount.innerText ;
+  //  }
 })

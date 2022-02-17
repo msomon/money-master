@@ -5,21 +5,20 @@ color: blue;}
   row-gap: 20px;
 }
 .image{height: 815px;
-  width: 705px;
-  
+  width: 605px;
   border-radius: 0px;
+  
   }
-  .form{width: 542px;
+  .form{width: 642px;
     height: 815px;
     padding-left: 500px;
     background: #F8F8F8;
+    text-align: center;
   }
   .notify{
     display: none;
   }
-  .notify2{
-    display: none;
-  }
+
   .income {
     margin-left: 70px;
   }

@@ -4,13 +4,13 @@ function allCost(input){
 const inputCost = parseFloat(inputText.value);
 if(isNaN(inputCost) || inputCost < 0){
   inputText.value = ""
-    return alert('please give positive number')
+    return alert('Please Give Positive Number')
 }else{
   inputText.value = ""
   return inputCost ;
+}    
 }
-    
-}
+ //    add calculate clic handeler  ///
 
 document.getElementById('calculate').addEventListener('click',function(){
   const food = allCost('food'); 
@@ -20,41 +20,48 @@ const cloth = allCost('cloth');
 const totalExpense = document.getElementById('expense');
 totalExpense.innerText = food + rent + cloth ;
   
-  const incomeMoney = document.getElementById('income');
-  const income = incomeMoney.value ;
-  incomeMoney.value = ""
+  // const incomeText = document.getElementById('income');
+  // const incomeMoney = incomeText.value ;
+  // if(isNaN(incomeMoney) || incomeMoney < 0){
+  //   incomeText.value = ""
+  //     return alert('Please Give Positive Number')
+  // }
+  // else{
+  //   incomeText.value = ""
+  //   return incomeMoney ;
+  // } 
+  // const incomeText = document.getElementById('income');   
+  const incomeMoney = allCost('income')
+  
 
-  const balanceMoney = document.getElementById('balance');
- const balance = parseFloat(balanceMoney.innerText);
+  const balanceText = document.getElementById('balance');
  
- 
- if(totalExpense.innerText > income){
-   return alert('please decreage your total expense')
+ if(totalExpense.innerText > incomeMoney ){
+   return alert('Please Decreage Your Total Expense ')
 
  }else{
-  balanceMoney.innerText = income - totalExpense.innerText  ;
+  balanceText.innerText = incomeMoney - totalExpense.innerText ;
  }
 
 })
-
+  //   add save  clic handaler  //
 document.getElementById('save-btn').addEventListener('click',function(){
   const save = document.getElementById('save');
-  const incomeMoney = document.getElementById('income');
+  const incomeText = document.getElementById('income');
   const savingAmount = document.getElementById('saving-amount');
-    const saveAmount = incomeMoney.value * (save.value / 100);
+    const saveAmount = incomeText.value * (save.value / 100);
     savingAmount.innerText = saveAmount ;
    const balance = document.getElementById('balance');
    const remainingBalance = document.getElementById('remaining-balance');
+
    remainingBalance.innerText = balance.innerText - savingAmount.innerText ;
 
-   //     error   //
-  //  const totalExpense = document.getElementById('expense');
-  //  const incomeMoneys = document.getElementById('income');
-  //  const total = totalExpense.innerText + savingAmount.innerText
-  //  if(total >incomeMoneys.value){
-  //   const notify = document.getElementById('notify-number');
-  //     notify.style.display = 'block'
-  //  }else{
-  //   remainingBalance.innerText = balance.innerText - savingAmount.innerText ;
-  //  }
+   //     error handling    //
+   const totalExpense = document.getElementById('expense');
+   const total = totalExpense.innerText + savingAmount.innerText
+   if(total >incomeText.value){
+    return alert('Please Decreage Your Total Expense Or Saving')
+   }else{
+    remainingBalance.innerText = balance.innerText - savingAmount.innerText ;
+   }
 })

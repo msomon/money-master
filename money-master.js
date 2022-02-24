@@ -1,3 +1,10 @@
+// function idValue(value=0){
+//   console.log(value);
+//   if(isNaN(value)){
+//     alert('Please Give input ')
+//     return ;
+//   }
+// }
 
 function allCost(input){
   const inputText = document.getElementById(input) ;
@@ -15,15 +22,34 @@ document.getElementById('calculate').addEventListener('click',function(){
   const food = allCost('food'); 
 const rent = allCost('rent');
 const cloth = allCost('cloth');
-
 const totalExpense = document.getElementById('expense');
-// const totalExpense = parseFloat(totalExpenseText.innerText)
-totalExpense.innerText = food + rent + cloth ;
-console.log(totalExpense.innerText);
+
+if(isNaN(food)){
+  alert('Please give number in the food input ')
+  return ; 
+}
+if(isNaN(rent)){
+  alert('Please give number in the rent input ')
+  return ; 
+}
+if(isNaN(cloth)){
+  alert('Please give number in the cloth input ')
+  return ; 
+}
+
+else{
+  totalExpense.innerText = food + rent + cloth ;
+}
+
+
   
   // const incomeMoneyText = document.getElementById('income');
   const incomeMoney = allCost('income')
   const balanceText = document.getElementById('balance');
+  if(isNaN(incomeMoney)){
+    alert('Please give number in the income input ')
+    return ; 
+}
  
  if(totalExpense.innerText > incomeMoney){
    return alert('Please Decreage Your Total Expense ')
